@@ -37,6 +37,18 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- vim.keymap.set('n', '<leader>fp', ":lua vim.fn.setreg('+', vim.fn.expand('%:p'))<CR>", { desc = '[F]ile [P]ath' })
+
+vim.api.nvim_set_keymap('n', '<Leader><Leader>', '<cmd>HopWord<CR>', { noremap = true, desc = 'Hop to Word' })
+
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+vim.keymap.set('n', 'B', '^', { noremap = true })
+vim.keymap.set('n', 'E', '$', { noremap = true })
+
+vim.keymap.set('n', '<leader>cc', '<cmd>CopilotChatToggle<CR>', { desc = '[C]opilot [C]hat' })
+vim.keymap.set('n', '<leader>cm', '<cmd>CopilotChatModels<CR>', { desc = '[C]opilot [M]odel' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
