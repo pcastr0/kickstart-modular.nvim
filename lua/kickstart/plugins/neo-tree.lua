@@ -13,12 +13,26 @@ return {
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
+  ---@module "neo-tree"
+  ---@type neotree.Config?
   opts = {
     filesystem = {
       window = {
         mappings = {
           ['\\'] = 'close_window',
         },
+      },
+    },
+    event_handlers = {
+
+      {
+        event = 'file_open_requested',
+        handler = function()
+          -- auto close
+          -- vim.cmd("Neotree close")
+          -- OR
+          require('neo-tree.command').execute { action = 'close' }
+        end,
       },
     },
   },
