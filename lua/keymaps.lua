@@ -37,7 +37,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
--- vim.keymap.set('n', '<leader>fp', ":lua vim.fn.setreg('+', vim.fn.expand('%:p'))<CR>", { desc = '[F]ile [P]ath' })
+vim.keymap.set('n', '<leader>fp', ":lua vim.fn.setreg('+', vim.fn.expand('%:p'))<CR>", { desc = '[F]ile [P]ath' })
 
 vim.api.nvim_set_keymap('n', '<Leader><Leader>', '<cmd>HopWord<CR>', { noremap = true, desc = 'Hop to Word' })
 
@@ -63,4 +63,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.keymap.set('n', '<leader>mf', function()
+  require('mini.files').open()
+end, { desc = 'Open mini.files' })
 -- vim: ts=2 sts=2 sw=2 et
