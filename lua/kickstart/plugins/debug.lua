@@ -23,6 +23,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mxsdev/nvim-dap-vscode-js',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -95,6 +96,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'js-debug-adapter',
       },
     }
 
@@ -144,5 +146,43 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+
+    -- Configure Node.js/TypeScript debugging
+    require('dap-vscode-js').setup {
+      -- Path to vscode-js-debug installation directory
+      debugger_path = vim.fn.resolve(vim.fn.stdpath 'data' .. '/mason/packages/js-debug-adapter'),
+      debugger_cmd = { 'js-debug-adapter' },
+      adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+    }
+
+    -- Configure DAP for JavaScript/TypeScript
+    for _, language in ipairs { 'typescript', 'javascript' } do
+      dap.configurations[language] = {
+        -- Debug single nodejs file
+        {
+          type = 'pwa-node',
+          request = 'launch',
+          name = 'Launch file',
+          program = '${file}',
+          cwd = '${workspaceFolder}',
+        },
+        -- Debug nodejs processes (make sure to add --inspect when you run the process)
+        {
+          type = 'pwa-node',
+          request = 'attach',
+          name = 'Attach',
+          processId = require('dap.utils').pick_process,
+          cwd = '${workspaceFolder}',
+        },
+        -- Debug web applications (client side)
+        {
+          type = 'pwa-chrome',
+          request = 'launch',
+          name = 'Launch & Debug Chrome',
+          url = 'http://localhost:3000',
+          webRoot = '${workspaceFolder}',
+        },
+      }
+    end
   end,
 }

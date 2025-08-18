@@ -2,10 +2,10 @@ return {
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
-      require('mini.files').setup {
-        -- You can set up Mini Files to use icons if you have a Nerd Font
-        use_icons = vim.g.have_nerd_font,
-      }
+      -- require('mini.files').setup {
+      --   -- You can set up Mini Files to use icons if you have a Nerd Font
+      --   use_icons = vim.g.have_nerd_font,
+      -- }
       -- Better Around/Inside textobjects
       --
       -- Examples:

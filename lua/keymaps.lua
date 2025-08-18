@@ -49,6 +49,19 @@ vim.keymap.set('n', 'E', '$', { noremap = true })
 
 vim.keymap.set('n', '<leader>cc', '<cmd>CopilotChatToggle<CR>', { desc = '[C]opilot [C]hat' })
 vim.keymap.set('n', '<leader>cm', '<cmd>CopilotChatModels<CR>', { desc = '[C]opilot [M]odel' })
+
+-- Debug keymaps for easier access
+vim.keymap.set('n', '<leader>dr', function()
+  require('dap').run_last()
+end, { desc = '[D]ebug [R]un Last' })
+
+vim.keymap.set('n', '<leader>dt', function()
+  require('dap').terminate()
+end, { desc = '[D]ebug [T]erminate' })
+
+vim.keymap.set('n', '<leader>dc', function()
+  require('dap').clear_breakpoints()
+end, { desc = '[D]ebug [C]lear Breakpoints' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -63,7 +76,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.keymap.set('n', '<leader>mf', function()
+vim.keymap.set('n', '\\', function()
   require('mini.files').open()
 end, { desc = 'Open mini.files' })
 -- vim: ts=2 sts=2 sw=2 et
