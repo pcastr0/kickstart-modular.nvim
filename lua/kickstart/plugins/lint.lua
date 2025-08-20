@@ -25,6 +25,10 @@ return {
           text = { 'vale' },
           -- bash = { 'shellcheck' },
           -- zsh = { 'shellcheck' },
+          javascript = { 'eslint_d' },
+          typescript = { 'eslint_d' },
+          javascriptreact = { 'eslint_d' },
+          typescriptreact = { 'eslint_d' },
         }
       --
       -- You can disable the default linters by setting their filetypes to nil:
