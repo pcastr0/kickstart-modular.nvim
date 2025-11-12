@@ -19,9 +19,9 @@ return {
         transparent = false, -- do not set background color
         dimInactive = false, -- dim inactive window `:h hl-NormalNC`
         terminalColors = true, -- define vim.g.terminal_color_{0,17}
-        theme = 'dragon', -- Load "wave" theme
+        theme = 'wave', -- Load "wave" theme
         background = { -- map the value of 'background' option to a theme
-          dark = 'dragon', -- try "dragon" !
+          dark = 'wave', -- try "dragon" !
           light = 'lotus',
         },
       }
@@ -29,7 +29,7 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'kanagawa-dragon'
+      vim.cmd.colorscheme 'kanagawa-wave'
     end,
   },
 }
