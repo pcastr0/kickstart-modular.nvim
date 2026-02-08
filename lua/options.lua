@@ -5,7 +5,6 @@
 
 -- Make line numbers default
 vim.o.number = true
-vim.o.number = true
 vim.o.relativenumber = false
 
 vim.o.tabstop = 2 -- Number of spaces that a <Tab> counts for

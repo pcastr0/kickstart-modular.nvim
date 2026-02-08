@@ -1,3 +1,5 @@
+-- vim: ts=2 sts=2 sw=2 et
+
 return {
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
@@ -33,4 +35,3 @@ return {
     end,
   },
 }
--- vim: ts=2 sts=2 sw=2 et

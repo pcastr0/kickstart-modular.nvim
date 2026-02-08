@@ -1,3 +1,5 @@
+-- vim: ts=2 sts=2 sw=2 et
+
 --[[
 --
 -- This file is not required for your own configuration,
